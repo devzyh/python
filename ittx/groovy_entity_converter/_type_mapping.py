@@ -6,13 +6,13 @@
 # Java类型转换JS类型
 def java_to_js(java: str):
     java = java.lower()
-    if "integer".find(java) != -1:
+    if java in "integer":
         return "integer"
-    elif "string".find(java) != -1:
+    elif java in "string":
         return "string"
-    elif "long,float,double,bigdecimal".find(java) != -1:
+    elif java in "long,float,double,bigdecimal":
         return "number"
-    elif "localdatetime".find(java) != -1:
+    elif java in "localdatetime":
         return "datetime"
     else:
         return java

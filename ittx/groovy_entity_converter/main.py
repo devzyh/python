@@ -3,6 +3,7 @@
 版本：v1.0.0
 描述：转换通天晓Groovy的Entity内容为Creator可以使用的表模型数据
 """
+import json
 import os
 import re
 
@@ -10,7 +11,8 @@ import _type_mapping
 import _util
 
 name = input("请输Groovy文件名：")
-filePath = "groovy/" + name.replace(".groovy", "") + ".groovy"
+name = name.replace(".groovy", "")
+filePath = "groovy/" + name + ".groovy"
 
 if not os.path.exists(filePath):
     print("文件[" + filePath + "]不存在！")
@@ -98,7 +100,7 @@ table_model = table_model.replace("@service@", _util.name_to_camel(table))
 table_model = table_model.replace("@tmFields@", ",".join(tm_fields))
 jsonPath = "groovy/" + name + ".tableModel.json"
 with open(jsonPath, 'w', encoding='utf-8') as wf:
-    wf.write(table_model)
+    wf.write(json.dumps(json.loads(table_model), indent=2, ensure_ascii=False))
 print("转换成功，输出表模型到文件：", jsonPath)
 
 # 输出MySQL脚本
