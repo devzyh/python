@@ -1,0 +1,281 @@
+{
+  "autoIncrementField": "id",
+  "code": "tmgj_user_trade",
+  "description": "",
+  "fields": [
+    {
+      "field": "id",
+      "id": "id",
+      "name": "",
+      "type": "integer"
+    },
+    {
+      "field": "storeCode",
+      "id": "storeCode",
+      "name": "店铺编码",
+      "type": "string"
+    },
+    {
+      "field": "brandCode",
+      "id": "brandCode",
+      "name": "品牌编码",
+      "type": "string"
+    },
+    {
+      "field": "orderTitle",
+      "id": "orderTitle",
+      "name": "订单的名称",
+      "type": "string"
+    },
+    {
+      "field": "totalAmount",
+      "id": "totalAmount",
+      "name": "订单人民币总金额",
+      "type": "number"
+    },
+    {
+      "field": "amount",
+      "id": "amount",
+      "name": "订单港币总金额",
+      "type": "number"
+    },
+    {
+      "field": "serviceCharge",
+      "id": "serviceCharge",
+      "name": "订单服务费",
+      "type": "number"
+    },
+    {
+      "field": "refund",
+      "id": "refund",
+      "name": "订单退款金额",
+      "type": "number"
+    },
+    {
+      "field": "settlement",
+      "id": "settlement",
+      "name": "订单协议费港币",
+      "type": "number"
+    },
+    {
+      "field": "rmbsettlement",
+      "id": "rmbsettlement",
+      "name": "订单协议费人民币",
+      "type": "number"
+    },
+    {
+      "field": "currency",
+      "id": "currency",
+      "name": "币种",
+      "type": "string"
+    },
+    {
+      "field": "rate",
+      "id": "rate",
+      "name": "汇率",
+      "type": "number"
+    },
+    {
+      "field": "type",
+      "id": "type",
+      "name": "资金流入流程类型,P表示收入,R表示支出",
+      "type": "string"
+    },
+    {
+      "field": "storeCode",
+      "id": "storeCode",
+      "name": "店铺编码",
+      "type": "string"
+    },
+    {
+      "field": "ownerNickName",
+      "id": "ownerNickName",
+      "name": "店主昵称",
+      "type": "string"
+    },
+    {
+      "field": "verificationStatus",
+      "id": "verificationStatus",
+      "name": "核销状态",
+      "type": "integer"
+    },
+    {
+      "field": "verificationErrorDesc",
+      "id": "verificationErrorDesc",
+      "name": "核销异常信息",
+      "type": "string"
+    },
+    {
+      "field": "verificationBy",
+      "id": "verificationBy",
+      "name": "核销人",
+      "type": "string"
+    },
+    {
+      "field": "verificationDate",
+      "id": "verificationDate",
+      "name": "核销时间",
+      "type": "datetime"
+    },
+    {
+      "field": "sourceOrderCode",
+      "id": "sourceOrderCode",
+      "name": "原订单编号",
+      "type": "string"
+    },
+    {
+      "field": "subjectCode",
+      "id": "subjectCode",
+      "name": "科目编码",
+      "type": "string"
+    },
+    {
+      "field": "subjectName",
+      "id": "subjectName",
+      "name": "科目名称",
+      "type": "string"
+    },
+    {
+      "field": "classification",
+      "id": "classification",
+      "name": "分类字段",
+      "type": "string"
+    },
+    {
+      "field": "orderDivision",
+      "id": "orderDivision",
+      "name": "订单区分",
+      "type": "string"
+    },
+    {
+      "field": "billSerialNumber",
+      "id": "billSerialNumber",
+      "name": "账务流水号",
+      "type": "string"
+    },
+    {
+      "field": "billingTime",
+      "id": "billingTime",
+      "name": "账单发生时间",
+      "type": "datetime"
+    },
+    {
+      "field": "settlementtime",
+      "id": "settlementtime",
+      "name": "账单处理时间",
+      "type": "datetime"
+    },
+    {
+      "field": "sourcePlatOrderCode",
+      "id": "sourcePlatOrderCode",
+      "name": "源平台订单号",
+      "type": "string"
+    },
+    {
+      "field": "isUploadStatus",
+      "id": "isUploadStatus",
+      "name": "是否上传",
+      "type": "integer"
+    },
+    {
+      "field": "uploadDate",
+      "id": "uploadDate",
+      "name": "上传时间",
+      "type": "datetime"
+    },
+    {
+      "field": "isAdjustment",
+      "id": "isAdjustment",
+      "name": "0:未调帐；1:调账；2:非调账",
+      "type": "integer"
+    },
+    {
+      "field": "created",
+      "id": "created",
+      "name": "",
+      "type": "datetime"
+    },
+    {
+      "field": "createdBy",
+      "id": "createdBy",
+      "name": "",
+      "type": "string"
+    },
+    {
+      "field": "lastUpdated",
+      "id": "lastUpdated",
+      "name": "",
+      "type": "datetime"
+    },
+    {
+      "field": "lastUpdatedBy",
+      "id": "lastUpdatedBy",
+      "name": "",
+      "type": "string"
+    },
+    {
+      "field": "version",
+      "id": "version",
+      "name": "",
+      "type": "integer"
+    },
+    {
+      "field": "userDef1",
+      "id": "userDef1",
+      "name": "自定义字段1",
+      "type": "string"
+    },
+    {
+      "field": "userDef2",
+      "id": "userDef2",
+      "name": "自定义字段2",
+      "type": "string"
+    },
+    {
+      "field": "userDef3",
+      "id": "userDef3",
+      "name": "自定义字段3",
+      "type": "string"
+    },
+    {
+      "field": "userDef4",
+      "id": "userDef4",
+      "name": "自定义字段4",
+      "type": "string"
+    },
+    {
+      "field": "userDef5",
+      "id": "userDef5",
+      "name": "自定义字段5",
+      "type": "string"
+    },
+    {
+      "field": "userDef6",
+      "id": "userDef6",
+      "name": "自定义字段6",
+      "type": "string"
+    },
+    {
+      "field": "userDef7",
+      "id": "userDef7",
+      "name": "自定义字段7",
+      "type": "string"
+    },
+    {
+      "field": "userDef8",
+      "id": "userDef8",
+      "name": "自定义字段8",
+      "type": "string"
+    }
+  ],
+  "idAttr": "",
+  "idColumnName": "id",
+  "labelAttr": "",
+  "logHistory": true,
+  "rowMapper": "",
+  "service": "tmgjUserTrade",
+  "tableName": "tmgj_user_trade",
+  "undefined": "",
+  "useCache": "",
+  "validator": ""
+}
