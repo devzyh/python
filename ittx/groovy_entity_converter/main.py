@@ -1,6 +1,6 @@
 """
 作者：devzyh
-版本：v1.0.0
+版本：v1.1.0
 描述：转换通天晓Groovy的Entity内容为Creator可以使用的表模型数据
 """
 import json
@@ -134,3 +134,4 @@ sql_path = "groovy/" + name + ".sql"
 with open(sql_path, 'w', encoding='utf-8') as wf:
     wf.write(sql_script)
 print("转换成功，输出表模型到文件：", sql_path)
+print(">>>>>>注意：生成内容仅做参考，具体使用请根据实际情况调整。<<<<<<")
