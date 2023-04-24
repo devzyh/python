@@ -39,6 +39,7 @@ txt = txt.replace("工作区域\n", "工作区域@")
 # 循环处理每一行数据
 rows = []
 phones = set()
+repeat_phones = []
 default_data = {
     "time": "",
     "company": "",
@@ -59,14 +60,19 @@ for line in txt.splitlines():
         data["time"] = line
 
         # 上一条签到数据
-        if data["phone"] != "" and data["phone"] not in phones:
-            # CSV格式
-            row = check_date + "," + salesperson + "," + data["company"] + "," + data["address"] + "," + is_kp + "," + \
-                  data["phone"] + "," + data["wechat"] + "," + data["device"] + "," + data["qty"] + "," + data[
-                      "operator"]
-            rows.append(row)
-            phones.add(data["phone"])
-            data = default_data.copy()
+        if data["phone"] != "":
+            # 重复验证
+            if data["phone"] in phones:
+                repeat_phones.append(data["phone"])
+            else:
+                # CSV格式
+                row = check_date + "," + salesperson + "," + data["company"] + "," + data[
+                    "address"] + "," + is_kp + "," + \
+                      data["phone"] + "," + data["wechat"] + "," + data["device"] + "," + data["qty"] + "," + data[
+                          "operator"]
+                rows.append(row)
+                phones.add(data["phone"])
+                data = default_data.copy()
 
         continue
 
@@ -134,3 +140,6 @@ with open(csv_path, 'w', encoding='utf-8') as wf:
 
 print("提取成功，输出CSV文件到：", csv_path)
 print(">>>>>>注意：生成内容仅做参考，具体使用请根据实际情况调整。<<<<<<")
+# 重复号码
+if len(repeat_phones) > 0:
+    print("\n数据重复号码如下：\n" + "\n".join(repeat_phones))
