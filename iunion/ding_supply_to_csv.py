@@ -7,7 +7,7 @@ import os
 
 # 本次提取变量
 check_date = "20230424"  # 签到日期
-salesperson = "销售人员"  # 销售人员
+salesperson = "欧阳俊杰"  # 销售人员
 is_kp = "是"  # 是否KP
 
 # 文件存在验证
@@ -38,6 +38,7 @@ txt = txt.replace("工作区域\n", "工作区域@")
 
 # 循环处理每一行数据
 rows = []
+phones = set()
 default_data = {
     "time": "",
     "company": "",
@@ -58,12 +59,13 @@ for line in txt.splitlines():
         data["time"] = line
 
         # 上一条签到数据
-        if data["phone"] != "":
+        if data["phone"] != "" and data["phone"] not in phones:
             # CSV格式
             row = check_date + "," + salesperson + "," + data["company"] + "," + data["address"] + "," + is_kp + "," + \
                   data["phone"] + "," + data["wechat"] + "," + data["device"] + "," + data["qty"] + "," + data[
                       "operator"]
             rows.append(row)
+            phones.add(data["phone"])
             data = default_data.copy()
 
         continue
