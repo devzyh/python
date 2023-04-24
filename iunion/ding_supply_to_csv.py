@@ -8,10 +8,10 @@ import os
 # 本次提取变量
 check_date = "20230424"  # 签到日期
 salesperson = "销售人员"  # 销售人员
-file_path = "file/" + check_date + ".txt"
 is_kp = "是"  # 是否KP
 
 # 文件存在验证
+file_path = "file/" + check_date + ".txt"
 if not os.path.exists(file_path):
     print("文件[" + file_path + "]不存在！")
     exit()
