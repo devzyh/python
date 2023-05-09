@@ -6,8 +6,8 @@
 import os
 
 # 本次提取变量
-check_date = "20230424"  # 签到日期
-salesperson = "欧阳俊杰"  # 销售人员
+check_date = "20230506"  # 签到日期
+salesperson = "销售人员"  # 销售人员
 is_kp = "是"  # 是否KP
 
 # 文件存在验证
