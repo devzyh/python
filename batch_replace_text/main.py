@@ -32,6 +32,7 @@ rules_index = input("请输入规则文件序号：")
 rule_path = rules + "/" + rule_files[int(rules_index)]
 print("已选择规则文件[" + rule_path + "]")
 
+# 解析替换规则
 with open(rule_path, "r", encoding="utf-8") as rf:
     rule_lines = rf.readlines()
 
@@ -53,19 +54,29 @@ for line in rule_lines:
 
     line_num = line_num + 1
 
-# 执行替换
+# 执行内容替换
 for file in files:
     file_path = dir + "/" + file
-    replaced_text = ""
+    tmp_file_path = file_path + ".tmp"
+
+    if os.path.isdir(file_path):
+        print("目录[" + file_path + "]跳过替换处理！")
+        continue
+
+    # 打开替换前文件
     with open(file_path, "r", encoding="utf-8") as rf:
-        for line in rf.readlines():
-            for rule_key in rule_map.keys():
-                line = line.replace(rule_key, rule_map[rule_key])
-            replaced_text += line
+        # 创建替换后文件
+        with open(tmp_file_path, "w", encoding="utf-8") as wf:
+            # 逐行替换文件内容
+            for line in rf.readlines():
+                for rule_key in rule_map.keys():
+                    line = line.replace(rule_key, rule_map[rule_key])
+                # 写入替换完成的内容到临时文件
+                wf.write(line)
 
-    with open(file_path, "w", encoding="utf-8") as wf:
-        wf.write(replaced_text)
+    # 恢复文件名称
+    os.remove(file_path)
+    os.rename(tmp_file_path, file_path)
+    print("文件[" + file_path + "]内容替换完毕！")
 
-    print("文件[" + file_path + "]替换完毕！")
-
-print("所有文件替换完毕！")
+print("目录[" + dir + "]下文件已替换完毕！")
