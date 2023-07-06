@@ -1,6 +1,6 @@
 """
 作者：devzyh
-版本：v1.1.0
+日期：2022-12-06
 描述：转换通天晓Groovy的Entity内容为Creator可以使用的表模型数据
 """
 import json
