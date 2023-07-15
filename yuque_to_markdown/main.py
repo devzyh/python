@@ -10,7 +10,11 @@ import shutil
 import yaml
 
 import _export_book
-import _export_document
+
+# 语雀Cookie
+cookie = "自行获取"
+# 图片路径前缀
+img_url_prefix = "https://img.devzyh.cn/"
 
 
 # 获取目录信息
@@ -43,20 +47,24 @@ def get_toc(meta_file):
 
 
 # 程序入口，务必填写语雀Cookie
-_export_document.cookie = ""
 
-metas = os.listdir("meta")
-for meta in metas:
-    if not meta.endswith(".json"):
-        continue
+if __name__ == "__main__":
+    # 本地图片路径
+    img_dir = "output/img"
+    if os.path.exists(img_dir):
+        shutil.rmtree(path=img_dir)
+    os.mkdir(img_dir)
 
-    # if meta.find("软件技术") == -1:
-    #     continue
+    # 解析lakebook元数据
+    metas = os.listdir("meta")
+    for meta in metas:
+        if not meta.endswith(".json"):
+            continue
 
-    print("开始导出语雀知识库：" + meta)
-    book, toc = get_toc("meta/" + meta)
-    md_dir = "output/" + meta.replace(".json", "")
-    if os.path.exists(md_dir):
-        shutil.rmtree(path=md_dir)
-    os.mkdir(md_dir)
-    _export_book.export(book, toc, md_dir)
+        print("开始导出语雀知识库：" + meta)
+        book, toc = get_toc("meta/" + meta)
+        md_dir = "output/" + meta.replace(".json", "")
+        if os.path.exists(md_dir):
+            shutil.rmtree(path=md_dir)
+        os.mkdir(md_dir)
+        _export_book.export(book, toc, md_dir)
