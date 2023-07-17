@@ -1,7 +1,7 @@
 """
 作者：devzyh
 时间：2023-07-14
-描述：Typora图片上传七牛云客户端
+描述：Typora图片上传又拍云客户端
 """
 import http.client
 import os
