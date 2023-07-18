@@ -2,15 +2,15 @@
 按知识库导出
 """
 
-# 导出知识库
 import os
 
-import _export_document
+import _export_doc
+from yuque_export_markdown import main
 
 
 # 获取名称前缀
 def get_prefix(num):
-    return str(num).rjust(3, "0") + "-"
+    return str(num).rjust(main.seq_len, "0") + "-"
 
 
 # 处理标题字符
@@ -22,7 +22,7 @@ def remove_special_char(input: str):
     input = input.replace("*", "")
     input = input.replace("?", "")
     input = input.replace("？", "")
-    input = input.replace("\"", "")
+    input = input.replace("/\"", "")
     input = input.replace("“", "")
     input = input.replace("”", "")
     input = input.replace("!", "")
@@ -31,9 +31,9 @@ def remove_special_char(input: str):
     return input
 
 
-# 导出知识库
-def export(book, toc, md_dir):
-    dirs = [md_dir]
+# 导出单个知识库
+def export(book, toc, book_dir):
+    dirs = [book_dir]
     dirs_num = {}
     next_t_index = 0
 
@@ -71,7 +71,7 @@ def export(book, toc, md_dir):
 
             # 导出文件
             path = path + "/" + title + ".md"
-            _export_document.export(book, t["url"], path)
+            _export_doc.export(book, t["url"], path)
 
             # 本目录最后一个文档导出后切回上一级
             last_doc = len(t["sibling_uuid"]) == 0
