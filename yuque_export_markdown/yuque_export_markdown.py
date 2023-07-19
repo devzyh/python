@@ -58,7 +58,7 @@ def get_toc(book):
 # 程序入口，语雀Cookie必填
 if __name__ == "__main__":
     # 接收输入数据
-    in_cookie = input("请输入语雀Cookie，获取方法参考：https://juejin.cn/post/7257123178131439674\n")
+    in_cookie = input("请输入语雀Cookie，获取方法参考：https://juejin.cn/post/7257184836972167225\n")
     if len(in_cookie) == 0:
         print("语雀Cookie不能为空")
         exit(0)
