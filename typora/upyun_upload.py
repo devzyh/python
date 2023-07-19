@@ -21,8 +21,12 @@ headers = {
 print("Upload Success:")
 
 for img in img_list:
-    file = None
+    # 跳过同域名地址
+    if img.startswith(domain):
+        print(img)
+        continue
 
+    file = None
     if img.startswith("http"):
         # 网络图片
         res = requests.get(img, {"User-Agent": "Typora/1.0.0 (https://typora.io)"})
