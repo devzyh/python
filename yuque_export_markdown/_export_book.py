@@ -5,12 +5,12 @@
 import os
 
 import _export_doc
-from yuque_export_markdown import main
+import yuque_export_markdown
 
 
 # 获取名称前缀
 def get_prefix(num):
-    return str(num).rjust(main.seq_len, "0") + "-"
+    return str(num).rjust(yuque_export_markdown.seq_len, "0") + "-"
 
 
 # 处理标题字符
