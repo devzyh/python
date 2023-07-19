@@ -22,11 +22,15 @@ seq_len = 3
 
 # 获取知识库列表
 def get_books():
-    res = requests.get("https://www.yuque.com/api/mine/book_stacks", headers={
-        'Cookie': cookie
-    })
-    books = json.loads(res.text)["data"][0]["books"]
-    return books
+    try:
+        res = requests.get("https://www.yuque.com/api/mine/book_stacks", headers={
+            'Cookie': cookie
+        })
+        books = json.loads(res.text)["data"][0]["books"]
+        return books
+    except:
+        print("获取语雀知识库列表失败，请检查Cookie是否正确！")
+        return []
 
 
 # 获取目录信息
@@ -53,7 +57,21 @@ def get_toc(book):
 
 # 程序入口，语雀Cookie必填
 if __name__ == "__main__":
-    # 接受输入数据
+    # 接收输入数据
+    in_cookie = input("请输入语雀Cookie，获取方法参考：https://juejin.cn/post/7257184836972167225\n")
+    if len(in_cookie) == 0:
+        print("语雀Cookie不能为空")
+        exit(0)
+    else:
+        cookie = in_cookie
+
+    in_prefix = input("请输入替换后图片前缀，默认[" + img_url_prefix + "]\n")
+    if len(in_prefix) > 0:
+        img_url_prefix = in_prefix
+
+    in_num = input("请输入文件序号长度，默认[" + str(seq_len) + "]\n")
+    if len(in_num) > 0:
+        seq_len = int(in_num)
 
     # 本地图片目录
     img_dir = "output/img"

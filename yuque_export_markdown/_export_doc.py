@@ -8,13 +8,13 @@ from urllib.parse import urlparse
 
 import requests
 
-import main
+import yuque_export_markdown
 
 
 # 请求语雀
 def get_markdown(book, doc):
     headers = {
-        'Cookie': main.cookie,
+        'Cookie': yuque_export_markdown.cookie,
         'content-type': 'text/markdown'
     }
     url = "https://www.yuque.com/devzyh/" + book + "/" + doc \
@@ -40,7 +40,7 @@ def download_image(url: str):
     with open("output/img/" + file, "wb") as f:
         f.write(res.content)
 
-    return main.img_url_prefix + file
+    return yuque_export_markdown.img_url_prefix + file
 
 
 # 转移图片
