@@ -22,7 +22,7 @@ def java_to_js(java: str):
 def java_to_mysql(java):
     java = java.lower()
     if java in "integer,long":
-        return "int(11)"
+        return "bigint(20)"
     elif java in "string":
         return "varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
     elif java in "float,double,bigdecimal":
