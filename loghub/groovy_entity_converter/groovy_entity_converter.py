@@ -10,11 +10,8 @@ import re
 import _type_mapping
 import _util
 
-name = input("请输Groovy文件名：")
-name = name.replace(".groovy", "")
-if len(name) == 0:
-    name = "input"
-file_path = "groovy/" + name + ".groovy"
+name = "groovy"
+file_path = "groovy/" + name + ".txt"
 
 if not os.path.exists(file_path):
     print("文件[" + file_path + "]不存在！")
