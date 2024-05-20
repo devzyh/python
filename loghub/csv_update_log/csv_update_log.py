@@ -7,8 +7,6 @@
 import json
 import os
 
-import re
-
 base_path = "csv/"
 file_path = base_path + "input.csv"
 
@@ -40,12 +38,12 @@ for line in text.splitlines():
         # 记录当前版本数据
         version = {}
         version["version"] = (
-            "v"
-            + str(major_version)
-            + "."
-            + str(minor_version)
-            + "."
-            + str(revision_version)
+                "v"
+                + str(major_version)
+                + "."
+                + str(minor_version)
+                + "."
+                + str(revision_version)
         )
         version["date"] = items_date
         version["items"] = items
@@ -64,3 +62,5 @@ versions.reverse()
 
 with open(base_path + "output.json", "w", encoding="utf-8") as wf:
     wf.write(json.dumps(versions, ensure_ascii=False))
+
+print("文件转换成功")
