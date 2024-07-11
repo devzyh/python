@@ -1,0 +1,30 @@
+# 主机信息
+hosts:
+  app1:
+    host: 1
+    port: 22
+    user: 2
+    pass: 3
+  app2:
+    host: 1
+    port: 22
+    user: 2
+    pass: 3
+
+# 命令集合
+commands:
+  # 定义一个命令
+  start:
+    host: app1 # 默认使用的主机，可以引用hosts的内容
+    action: ignore # 默认的失败后执行动作
+    setups:
+      - setup: # 步骤1 bash命令
+        host: # 可选，指定主机上运行命令。不指定继承父级
+        result: # 可选，命令执行结果匹配，支持*、*内容*、*内容、内容*；为空时不处理action内容
+        action: # 失败后的动作 ignore 忽略错误继续执行 /wait x 等待多少秒后重试步骤 / exit 退出命令执行；为空时继承父级
+      - setup: # 步骤2 bash命令
+
+  # 又定义一个命令
+  stop:
+
+  server:
