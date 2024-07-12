@@ -101,7 +101,7 @@ def download_doc():
         if progress < 100:
             time.sleep(1)
 
-    print("文件下载地址" + file_url)
+    print("文件下载地址：" + file_url)
 
     # 导出到临时文件
     response = requests.get(file_url)
